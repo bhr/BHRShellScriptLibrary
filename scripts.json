@@ -1,0 +1,33 @@
+[
+	{
+		"uid": "BEBBA2D6-FB52-400E-BB5F-4B8FD2C051F0",
+		"name": "System Monitoring",
+		"description": "Scripts for monitoring CPU, Memory, etc",
+		children: 	[
+						{
+		"uid": "1CE0BC40-C03F-40FF-8EF5-F067B78695D1",
+		"name": "Show CPU",
+		"description": "Prints out the current CPU utilization",
+		"timeout": 0,
+		"showResult": true,
+		"script": "vmstat 1 3 | awk '{for (i=0;i<=NF;i++) if ($i == \"id\") {cmd=i;};} {print $cmd \", \"}'|tail -3;"
+						},
+					{
+		"uid": "E499D11C-1CD5-4B94-B1A9-7C6FA10DBE6E",
+		"name": "Show Memory",
+		"description": "Prints out the current Memory utilization",
+		"timeout": 0,
+		"showResult": true,
+		"script": "cat /proc/meminfo;"
+						},
+						{
+		"uid": "4C71C399-05C0-4014-B586-BD956E9540AF",
+		"name": "Show Disk Status",
+		"description": "Prints disk usage of all mounted drives",
+		"timeout": 0,
+		"showResult": true,
+		"script": "df -h;"
+						}
+						]
+	}
+]
