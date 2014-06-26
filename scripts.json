@@ -2,7 +2,7 @@
     {
         "children": [
             {
-                "description": "Prints out the current CPU utilization",
+                "description": "Prints out current CPU utilization",
                 "name": "Show CPU",
                 "script": "vmstat 1 3 | awk '{for (i=0;i<=NF;i++) if ($i == \"id\") {cmd=i;};} {print $cmd \", \"}'|tail -3;",
                 "showResult": true,
@@ -10,8 +10,55 @@
                 "uid": "1CE0BC40-C03F-40FF-8EF5-F067B78695D1"
             },
             {
-                "description": "Prints out the current Memory utilization",
-                "name": "Show Memory",
+                "description": "Prints out current free Memory",
+                "name": "Show free Memory",
+                "script": "free;",
+                "showResult": true,
+                "timeout": 0,
+                "uid": "F5C16B0B-B176-4F59-A83E-03287549FE66"
+            },
+            {
+                "description": "Prints out all running processes",
+                "name": "Show running Processes",
+                "script": "ps;",
+                "showResult": true,
+                "timeout": 0,
+                "uid": "1B13F2E9-727B-4865-ADD9-7240E3C730E0"
+            },
+            {
+                "description": "Prints out all running processes in a tree",
+                "name": "Show running Processes Tree",
+                "script": "pstree;",
+                "showResult": true,
+                "timeout": 0,
+                "uid": "BBFC858C-70C3-41CA-ABB3-1F4F66ED458C"
+            },
+            {
+                "description": "Prints out system uptime",
+                "name": "Show System Uptime",
+                "script": "uptime;",
+                "showResult": true,
+                "timeout": 0,
+                "uid": "DDA382D2-A4B3-46B7-8A0D-2A4C680F62A4"
+            }
+        ],
+        "description": "Scripts for monitoring CPU, Memory, etc",
+        "name": "System Monitoring",
+        "uid": "BEBBA2D6-FB52-400E-BB5F-4B8FD2C051F0"
+    },
+    {
+        "children": [
+            {
+                "description": "Prints out CPU information",
+                "name": "Show CPU Info",
+                "script": "cat /proc/cpuinfo",
+                "showResult": true,
+                "timeout": 0,
+                "uid": "06EF6D64-4BB3-4AF7-A52B-4981DE613B8E"
+            },
+            {
+                "description": "Prints out Memory information",
+                "name": "Show Memory Info",
                 "script": "cat /proc/meminfo;",
                 "showResult": true,
                 "timeout": 0,
@@ -24,10 +71,111 @@
                 "showResult": true,
                 "timeout": 0,
                 "uid": "4C71C399-05C0-4014-B586-BD956E9540AF"
+            },
+            {
+                "description": "Prints current version of the device",
+                "name": "Show Current Version",
+                "script": "cat /proc/version",
+                "showResult": true,
+                "timeout": 0,
+                "uid": "0A46EB7F-CCA6-4F0D-8672-D0E52A506EB0"
+            },
+            {
+                "description": "List attached USB devices",
+                "name": "Show USB Devices",
+                "script": "lsusb;",
+                "showResult": true,
+                "timout": 0,
+                "uid": "5DAEBE69-B83B-4DDE-82D3-77E95E5E1455"
+            },
+            {
+                "description": "Prints the system's external IP address",
+                "name": "Show External IP Address",
+                "script": "curl ifconfig.me;",
+                "showResult": true,
+                "timout": 60,
+                "uid": "5DACBF45-36EC-4133-B81E-833A817FD15E"
             }
         ],
-        "description": "Scripts for monitoring CPU, Memory, etc",
-        "name": "System Monitoring",
-        "uid": "BEBBA2D6-FB52-400E-BB5F-4B8FD2C051F0"
+        "description": "Display General System Information",
+        "name": "Hardware Information",
+        "uid": "B257AB73-8985-42D2-A056-983FA4ECE8A9"
+    },
+    {
+        "children": [
+            {
+                "description": "Displays last 5 logged in users",
+                "name": "Shows last Users",
+                "script": " last -n 5",
+                "showResult": true,
+                "timeout": 0,
+                "uid": "FB4D4E8C-3DF8-41A1-A11E-6EB2704E726C"
+            },
+            {
+                "description": "Prints last 30 Auth Log Lines",
+                "name": "Show Last Authorizations",
+                "script": "tail -30 /var/log/auth.log;",
+                "showResult": true,
+                "timeout": 0,
+                "uid": "D9061271-B237-42DF-BB74-ABB3F4C4EF00"
+            },
+            {
+                "description": "Show who is logged on and what they're doing",
+                "name": "Show Logged on Users",
+                "script": "w;",
+                "showResult": true,
+                "timeout": 0,
+                "uid": "60989A97-56B7-4E1C-A291-CDAAA8AD0C0E"
+            }
+        ],
+        "description": "Display Information about last logins, current user, etc.",
+        "name": "Login Information",
+        "uid": "0FE5D0F9-DF48-4854-9F9A-8FE998AF367A"
+    },
+    {
+        "children": [
+            {
+                "description": "Safely shutdown",
+                "name": "Shutdown",
+                "script": " shutdown now;",
+                "showResult": false,
+                "timeout": 10,
+                "uid": "C99921C9-4F18-45EC-A042-F59E0009EC8A"
+            },
+            {
+                "description": "Reboots the system",
+                "name": "Reboot",
+                "script": "shutdown -r now;",
+                "showResult": false,
+                "timeout": 10,
+                "uid": "2E41199D-91A8-4779-B73D-FFC74A54D6B4"
+            }
+        ],
+        "description": "Shutting down and restarting the system",
+        "name": "System Restart/Shutdown",
+        "uid": "0FE5D0F9-DF48-4854-9F9A-8FE998AF367A"
+    },
+    {
+        "children": [
+            {
+                "description": "Automatically update and upgrade all software packages",
+                "name": "Update and Upgrade",
+                "script": " apt-get update; apt-get -y upgrade;",
+                "showResult": false,
+                "timeout": 10,
+                "uid": "C99921C9-4F18-45EC-A042-F59E0009EC8A"
+            },
+            {
+                "description": "Reboots the system",
+                "name": "Reboot",
+                "script": "shutdown -r now;",
+                "showResult": false,
+                "timeout": 10,
+                "uid": "2E41199D-91A8-4779-B73D-FFC74A54D6B4"
+            }
+        ],
+        "description": "Updating, Upgrading Software Packages and other tasks",
+        "name": "System Maintenance",
+        "uid": "0BFA9C70-2A63-42A6-820C-476E508ABBC6"
     }
 ]
