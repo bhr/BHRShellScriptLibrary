@@ -28,19 +28,17 @@ Script Guidelines
 All scripts are located in `scripts.json`. 
 The basic structure is a an array of `Groups`, that have children. Each child is a `Command`.
 
-Illustration:
+File Structure Illustration:
 ```
-[	
-	Group
-		[
-			Command,
-			Command
+[ 
+	Group [
+		Command,
+		Command
 		],
-	Group
-		[
-			Command,
-			Command,
-			Command
+	Group [
+		Command,
+		Command,
+		Command 
 		]
 ]
 ```
