@@ -30,22 +30,18 @@ The basic structure is a an array of `Groups`, that have children. Each child is
 
 Illustration:
 ```
-[
-	{ 
-		Group
-			[
-				Command
-				Command
-			]
-	},
-	{ 
-		Group
-			[
-				Command
-				Command
-				Command
-			]
-	}
+[	
+	Group
+		[
+			Command,
+			Command
+		],
+	Group
+		[
+			Command,
+			Command,
+			Command
+		]
 ]
 ```
 
