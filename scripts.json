@@ -237,7 +237,7 @@
             },
             {
                 "description": "Searches for a given word case insensitive",
-                "name": "Word search (Case insensitive)",
+                "name": "Word search",
                 "script": "searchText=<#mySearchText#>;\nfilename=<#myfile#>;\ngrep -iw \"$searchText\" $filename",
                 "showResult": true,
                 "timeout": 0,
@@ -245,7 +245,7 @@
             },
             {
                 "description": "Searches for a given string at the beginning of a line",
-                "name": "Text search for lines starting with",
+                "name": "Lines starting with text",
                 "script": "searchText=<#mySearchText#>;\nfilename=<#myfile#>;\ngrep \"^$searchText.*\" $filename",
                 "showResult": true,
                 "timeout": 0,
@@ -253,7 +253,7 @@
             },
             {
                 "description": "Searches for a given string at the end of a line",
-                "name": "Text search for lines ending with",
+                "name": "Lines ending with text",
                 "script": "searchText=<#mySearchText#>;\nfilename=<#myfile#>;\ngrep \".*$searchText$\" $filename",
                 "showResult": true,
                 "timeout": 0,
