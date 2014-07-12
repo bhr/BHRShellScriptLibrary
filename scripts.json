@@ -199,7 +199,7 @@
             {
                 "description": "Mounts a remote CIFS/SMB file system",
                 "name": "Mount CIFS/SMB",
-                "script": "ip_address=<#ip_to_nfs_drive#>;\ncifs_share_path=<#my_local_path_on_nfs_drive#>;\nlocal_mount_path=<#my_local_mount_path#>;\nusername=<#myusername#>;\npassword=<#mypassword#>;\n\nsudo mkdir -p $local_mount_path;\nsudo mount -t cifs //$ip_address/$cifs_share_path $local_mount_path -o username=$username,password=$password;",
+                "script": "ip_address=<#ip_to_server#>;\nshare_name=<#share_name#>;\nlocal_mount_path=<#my_local_mount_path#>;\nusername=<#myusername#>;\npassword=<#mypassword#>;\n\nsudo mkdir -p $local_mount_path;\nsudo mount -t cifs //$ip_address/$share_name $local_mount_path -o username=$username,password=$password;",
                 "showResult": false,
                 "timeout": 0,
                 "uid": "E2670E41-F80D-4707-8982-A3A312BA5B40"
