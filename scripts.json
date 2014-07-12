@@ -18,12 +18,20 @@
                 "uid": "F5C16B0B-B176-4F59-A83E-03287549FE66"
             },
             {
-                "description": "Prints out all running processes",
-                "name": "Show running Processes",
+                "description": "Prints out running processes of the current user",
+                "name": "Show this user's running Processes",
                 "script": "ps;",
                 "showResult": true,
                 "timeout": 0,
                 "uid": "1B13F2E9-727B-4865-ADD9-7240E3C730E0"
+            },
+            {
+                "description": "Prints out running processes of all users",
+                "name": "Show all user's running Processes",
+                "script": "ps -e;",
+                "showResult": true,
+                "timeout": 0,
+                "uid": "551EDCD5-7624-45D8-9F60-80737362FCC0"
             },
             {
                 "description": "Prints out all running processes in a tree",
@@ -153,7 +161,7 @@
         ],
         "description": "Shutting down and restarting the system",
         "name": "System Restart/Shutdown",
-        "uid": "0FE5D0F9-DF48-4854-9F9A-8FE998AF367A"
+        "uid": "557C127C-7C66-49C7-809A-B4631CF1C94F"
     },
     {
         "children": [
@@ -163,20 +171,12 @@
                 "script": "apt-get update; apt-get -y upgrade;",
                 "showResult": false,
                 "timeout": 10,
-                "uid": "C99921C9-4F18-45EC-A042-F59E0009EC8A"
-            },
-            {
-                "description": "Reboots the system",
-                "name": "Reboot",
-                "script": "shutdown -r now;",
-                "showResult": false,
-                "timeout": 10,
-                "uid": "2E41199D-91A8-4779-B73D-FFC74A54D6B4"
+                "uid": "9704FA23-33E4-46D2-B67E-439415AB615B"
             }
         ],
         "description": "Updating, Upgrading Software Packages and other tasks",
         "name": "System Maintenance",
-        "uid": "0BFA9C70-2A63-42A6-820C-476E508ABBC6"
+        "uid": "AF150AC8-D745-4E8E-905A-D6E84DDB9312"
     },
     {
         "children": [
@@ -215,6 +215,92 @@
         ],
         "description": "All Commands about Networking",
         "name": "Networking",
+        "uid": "D0C2C70B-E2B3-4888-8C41-67068BA30BC8"
+    },
+    {
+        "children": [
+            {
+                "description": "Searches for a given string",
+                "name": "Text search",
+                "script": "searchText=<#mySearchText#>;\nfilename=<#myfile#>;\ngrep \"$searchText\" $filename",
+                "showResult": true,
+                "timeout": 0,
+                "uid": "D910451D-9D1E-4915-96F4-D52822BD8C4F"
+            },
+            {
+                "description": "Searches for a given string case insensitive",
+                "name": "Text search (Case insensitive)",
+                "script": "searchText=<#mySearchText#>;\nfilename=<#myfile#>;\ngrep -i \"$searchText\" $filename",
+                "showResult": true,
+                "timeout": 0,
+                "uid": "1F6A6A06-78C6-45A6-8829-51A46613B28F"
+            },
+            {
+                "description": "Searches for a given word case insensitive",
+                "name": "Word search (Case insensitive)",
+                "script": "searchText=<#mySearchText#>;\nfilename=<#myfile#>;\ngrep -iw \"$searchText\" $filename",
+                "showResult": true,
+                "timeout": 0,
+                "uid": "FC452339-F82E-4E5A-8BA4-08B86B97102D"
+            },
+            {
+                "description": "Searches for a given string at the beginning of a line",
+                "name": "Text search for lines starting with",
+                "script": "searchText=<#mySearchText#>;\nfilename=<#myfile#>;\ngrep \"^$searchText.*\" $filename",
+                "showResult": true,
+                "timeout": 0,
+                "uid": "9B7D603E-F016-46BB-AFCC-738D88633401"
+            },
+            {
+                "description": "Searches for a given string at the end of a line",
+                "name": "Text search for lines ending with",
+                "script": "searchText=<#mySearchText#>;\nfilename=<#myfile#>;\ngrep \".*$searchText$\" $filename",
+                "showResult": true,
+                "timeout": 0,
+                "uid": "16DA7332-2457-4C5C-918E-1FDD09B22A4F"
+            },
+            {
+                "description": "Displays all file names that match a given pattern",
+                "name": "Show files matching string",
+                "script": "searchText=<#mySearchText#>;\nfilename=<#myfile#>;\ngrep -l \"$searchText\" $filename",
+                "showResult": true,
+                "timeout": 0,
+                "uid": "BB3A55F9-1DEB-4B0D-BD60-9DAB97AC9001"
+            },
+            {
+                "description": "Displays the number of occurrences of a pattern in a given file",
+                "name": "Occurrences of text in file",
+                "script": "searchText=<#mySearchText#>;\nfilename=<#myfile#>;\nsort $filename | uniq -c | sort -nr | grep \"$searchText\"",
+                "showResult": true,
+                "timeout": 0,
+                "uid": "9ED687D6-CB3C-42AC-A406-A122234F0DFA"
+            }
+        ],
+        "description": "Searching in Files and Folders",
+        "name": "Search",
         "uid": "0BFA9C70-2A63-42A6-820C-476E508ABBC6"
+    },
+    {
+        "children": [
+            {
+                "description": "Synchronizes two folders and preserves metadata",
+                "name": "Synchronize two folders",
+                "script": "source=<#source#>;\ndestination=<#destination#>;\nrsync -azv $source $destination;",
+                "showResult": true,
+                "timeout": 0,
+                "uid": "52676F06-E1BF-4F17-ACB2-A6F066A0D050"
+            },
+            {
+                "description": "Synchronize two folders and delete orphaned files at target",
+                "name": "Backup Folder",
+                "script": "source=<#source#>;\ndestination=<#destination#>;\nrsync -azv --delete $source $destination;",
+                "showResult": true,
+                "timeout": 0,
+                "uid": "DC8E0E7D-2C05-4CA2-AB83-1F5905D48FD3"
+            }
+        ],
+        "description": "Synchronize and Backup Files and Folders",
+        "name": "Synchronize & Backup",
+        "uid": "787FE92D-8BFF-40AC-84D7-6985E94FA64A"
     }
 ]
