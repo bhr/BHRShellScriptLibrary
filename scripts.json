@@ -183,7 +183,7 @@
             {
                 "description": "Mounts a NFS drive",
                 "name": "Mount NFS",
-                "script": "#To enable NFS share mounting on raspbian, please see: http://www.raspbian.org/RaspbianFAQ#How_do_I_mount_directories_from_other_Linux.2FUnix.2FBSD_servers.3F__How_do_I_mount_an_NFS_share.3F\nip_address=<#ip_to_nfs_drive#>;\nnfs_path=<#my_local_path_on_nfs_drive#>;\nlocal_mount_path=<#my_local_mount_path#>;\nmkdir -p $local_mount_path;sudo mount $ip_address:$nfs_path $local_mount_path;",
+                "script": "#To enable NFS share mounting on raspbian, please see: http://www.raspbian.org/RaspbianFAQ#How_do_I_mount_directories_from_other_Linux.2FUnix.2FBSD_servers.3F__How_do_I_mount_an_NFS_share.3F\n#\nip_address=<#ip_to_nfs_drive#>;\nnfs_path=<#my_local_path_on_nfs_drive#>;\nlocal_mount_path=<#my_local_mount_path#>;\n\nmkdir -p $local_mount_path; sudo mount $ip_address:$nfs_path $local_mount_path;",
                 "showResult": false,
                 "timeout": 0,
                 "uid": "325C7C3D-4E87-44EB-8956-B3EF733BD95B"
