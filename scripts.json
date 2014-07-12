@@ -197,16 +197,16 @@
                 "uid": "484F315D-D0CF-4416-9F0E-3C67C649755B"
             },
             {
-                "description": "Mounts a remote CIFS file system",
-                "name": "Mount SMB",
-                "script": "ip_address=<#ip_to_nfs_drive#>;\nnfs_path=<#my_local_path_on_nfs_drive#>;\nlocal_mount_path=<#my_local_mount_path#>;\nusername=<#myusername#>;\npassword=<#mypassword#>;\n\nsudo mkdir -p $local_mount_path;\nmount -t cifs //$ip_address/$nfs_path -o username=$username,password=$password $local_mount_path;",
+                "description": "Mounts a remote CIFS/SMB file system",
+                "name": "Mount CIFS/SMB",
+                "script": "ip_address=<#ip_to_nfs_drive#>;\ncifs_share_path=<#my_local_path_on_nfs_drive#>;\nlocal_mount_path=<#my_local_mount_path#>;\nusername=<#myusername#>;\npassword=<#mypassword#>;\n\nsudo mkdir -p $local_mount_path;\nsudo mount -t cifs //$ip_address/$cifs_share_path $local_mount_path -o username=$username,password=$password;",
                 "showResult": false,
                 "timeout": 0,
                 "uid": "E2670E41-F80D-4707-8982-A3A312BA5B40"
             },
             {
-                "description": "Unmounts a remote CIFS file system",
-                "name": "Unmount SMB",
+                "description": "Unmounts a remote CIFS/SMB file system",
+                "name": "Unmount CIFS/SMB",
                 "script": "local_mount_path=<#my_local_mount_path#>;\nsudo umount -l -f $local_mount_path;",
                 "showResult": false,
                 "timeout": 0,
