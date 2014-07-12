@@ -181,7 +181,7 @@
     {
         "children": [
             {
-                "description": "Mounts a NFS drive",
+                "description": "Mounts a remote drive via NFS",
                 "name": "Mount NFS",
                 "script": "#To enable NFS share mounting on raspbian, please see: http://www.raspbian.org/RaspbianFAQ#How_do_I_mount_directories_from_other_Linux.2FUnix.2FBSD_servers.3F__How_do_I_mount_an_NFS_share.3F\n#\nip_address=<#ip_to_nfs_drive#>;\nnfs_path=<#my_local_path_on_nfs_drive#>;\nlocal_mount_path=<#my_local_mount_path#>;\n\nmkdir -p $local_mount_path; sudo mount $ip_address:$nfs_path $local_mount_path;",
                 "showResult": false,
@@ -189,12 +189,28 @@
                 "uid": "325C7C3D-4E87-44EB-8956-B3EF733BD95B"
             },
             {
-                "description": "Unmounts a NFS drive",
+                "description": "Unmounts a remove drive connected via NFS",
                 "name": "Unmount NFS",
                 "script": "local_mount_path=<#my_local_mount_path#>;\nsudo umount -l -f $local_mount_path;",
                 "showResult": false,
                 "timeout": 0,
-                "uid": "325C7C3D-4E87-44EB-8956-B3EF733BD95B"
+                "uid": "484F315D-D0CF-4416-9F0E-3C67C649755B"
+            },
+            {
+                "description": "Mounts a remote CIFS file system",
+                "name": "Mount SMB",
+                "script": "ip_address=<#ip_to_nfs_drive#>;\nnfs_path=<#my_local_path_on_nfs_drive#>;\nlocal_mount_path=<#my_local_mount_path#>;\nusername=<#myusername#>;\npassword=<#mypassword#>;\n\nsudo mkdir -p $local_mount_path;\nmount -t cifs //$ip_address/$nfs_path -o username=$username,password=$password $local_mount_path;",
+                "showResult": false,
+                "timeout": 0,
+                "uid": "E2670E41-F80D-4707-8982-A3A312BA5B40"
+            },
+            {
+                "description": "Unmounts a remote CIFS file system",
+                "name": "Unmount SMB",
+                "script": "local_mount_path=<#my_local_mount_path#>;\nsudo umount -l -f $local_mount_path;",
+                "showResult": false,
+                "timeout": 0,
+                "uid": "1551F355-D3A8-4CB1-A519-44743E49A470"
             }
         ],
         "description": "All Commands about Networking",
