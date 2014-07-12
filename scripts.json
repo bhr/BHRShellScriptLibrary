@@ -159,8 +159,8 @@
         "children": [
             {
                 "description": "Automatically update and upgrade all software packages",
-                "name": "Update and Upgrade",
-                "script": " apt-get update; apt-get -y upgrade;",
+                "name": "Update and Upgrade - apt",
+                "script": "apt-get update; apt-get -y upgrade;",
                 "showResult": false,
                 "timeout": 10,
                 "uid": "C99921C9-4F18-45EC-A042-F59E0009EC8A"
@@ -176,6 +176,29 @@
         ],
         "description": "Updating, Upgrading Software Packages and other tasks",
         "name": "System Maintenance",
+        "uid": "0BFA9C70-2A63-42A6-820C-476E508ABBC6"
+    },
+    {
+        "children": [
+            {
+                "description": "Mounts a NFS drive",
+                "name": "Mount NFS",
+                "script": "#To enable NFS share mounting on raspbian, please see: http://www.raspbian.org/RaspbianFAQ#How_do_I_mount_directories_from_other_Linux.2FUnix.2FBSD_servers.3F__How_do_I_mount_an_NFS_share.3F\nip_address=<#ip_to_nfs_drive#>;\nnfs_path=<#my_local_path_on_nfs_drive#>;\nlocal_mount_path=<#my_local_mount_path#>;\nmkdir -p $local_mount_path;sudo mount $ip_address:$nfs_path $local_mount_path;",
+                "showResult": false,
+                "timeout": 0,
+                "uid": "325C7C3D-4E87-44EB-8956-B3EF733BD95B"
+            },
+            {
+                "description": "Unmounts a NFS drive",
+                "name": "Unmount NFS",
+                "script": "local_mount_path=<#my_local_mount_path#>;\nsudo umount -l -f $local_mount_path;",
+                "showResult": false,
+                "timeout": 0,
+                "uid": "325C7C3D-4E87-44EB-8956-B3EF733BD95B"
+            }
+        ],
+        "description": "All Commands about Networking",
+        "name": "Networking",
         "uid": "0BFA9C70-2A63-42A6-820C-476E508ABBC6"
     }
 ]
