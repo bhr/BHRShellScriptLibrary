@@ -371,7 +371,7 @@
             {
                 "description": "Grant ownership of file/folder",
                 "name": "Grant ownership to user",
-                "script": "user=<#user#>;\nfile=<#file_path#>;\necho \"before:\" && ls -l $file;\nchown $user $file;echo \"after:\" && ls -l $file;\n",
+                "script": "user=<#user#>;\nfile=<#file_path#>;\necho \"before:\" && ls -l $file;\nsudo chown $user $file;echo \"after:\" && ls -l $file;\n",
                 "showResult": true,
                 "timeout": 0,
                 "uid": "3854CF8E-429C-489B-B01A-45591E743A58"
@@ -379,7 +379,7 @@
             {
                 "description": "Assign a file/folder to a group",
                 "name": "Assign to group",
-                "script": "user=<#user#>;\nfile=<#file_path#>;\necho \"before:\" && ls -l $file;\nchgrp $group $file;echo \"after:\" && ls -l $file;\n",
+                "script": "user=<#user#>;\nfile=<#file_path#>;\necho \"before:\" && ls -l $file;\nsudo chgrp $group $file;echo \"after:\" && ls -l $file;\n",
                 "showResult": true,
                 "timeout": 0,
                 "uid": "8F647A96-B381-4185-BE5A-7E8088B99574"
