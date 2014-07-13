@@ -302,5 +302,68 @@
         "description": "Synchronize and Backup Files and Folders",
         "name": "Synchronize & Backup",
         "uid": "787FE92D-8BFF-40AC-84D7-6985E94FA64A"
+    },
+    {
+        "children": [
+            {
+                "description": "List files with no options",
+                "name": "List files (no option)",
+                "script": "folder=<#folder#>;\nls $folder",
+                "showResult": true,
+                "timeout": 0,
+                "uid": "D3DF3E5C-F9F3-4AE4-A2C4-3EFAD594BC89"
+            },
+            {
+                "description": "List one file per line",
+                "name": "List files single line",
+                "script": "folder=<#folder#>;\nls -1 $folder",
+                "showResult": true,
+                "timeout": 0,
+                "uid": "2C6CCA74-75D1-49B7-8BDD-9C1B5F677228"
+            },
+            {
+                "description": "List files with permissions & size",
+                "name": "List files detailed",
+                "script": "folder=<#folder#>;\nls -lh $folder",
+                "showResult": true,
+                "timeout": 0,
+                "uid": "9DC08D6D-9515-4F66-9AE6-6E2720A713D6"
+            },
+            {
+                "description": "List files including hidden ones",
+                "name": "List hidden files",
+                "script": "folder=<#folder#>;\nls -a $folder",
+                "showResult": true,
+                "timeout": 0,
+                "uid": "53FE148A-CD4D-4AA0-8B63-68D08B73F56D"
+            },
+            {
+                "description": "List all sub directories and their contents",
+                "name": "List directory tree recursively",
+                "script": "folder=<#folder#>;\nls -R $folder",
+                "showResult": true,
+                "timeout": 0,
+                "uid": "28B75316-641F-40E3-BF5B-47B59198B3D9"
+            },
+            {
+                "description": "List all files sorted by file size",
+                "name": "List files by size",
+                "script": "folder=<#folder#>;\nls -lSh $folder",
+                "showResult": true,
+                "timeout": 0,
+                "uid": "93C64D03-2672-4250-9683-4EAA71B024FE"
+            },
+            {
+                "description": "Shows the size of the contents of the directory",
+                "name": "Show size of directory",
+                "script": "folder=<#folder#>;\ndu -sh $folder",
+                "showResult": true,
+                "timeout": 0,
+                "uid": "0EDD0312-7476-4CD8-A0B6-03F829B89E25"
+            }
+        ],
+        "description": "List Files and contents of Folders",
+        "name": "List Files and Folders",
+        "uid": "38F06000-679F-441A-B58C-A1BD56EBA902"
     }
 ]
