@@ -4,7 +4,7 @@
             {
                 "description": "Prints out current CPU utilization",
                 "name": "Show CPU",
-                "script": "vmstat 1 3 | awk '{for (i=0;i<=NF;i++) if ($i == \"id\") {cmd=i;};} {print $cmd \", \"}'|tail -3;",
+                "script": "top -b -n2 | grep \"Cpu(s)\" | awk '{print $8 \",\"}';",
                 "showResult": true,
                 "timeout": 0,
                 "uid": "1CE0BC40-C03F-40FF-8EF5-F067B78695D1"
