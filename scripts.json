@@ -427,7 +427,6 @@
     	"decription": "Restart NZBGet",
     	"name": "Restart NZBGet",
     	"script": "sudo service nzbget restart;",
-    	"script": "folder=<#folder#>;\ndu -sh $folder",
         "showResult": true,
         "timeout": 0,
         "uid": "598e7a85-84ff-455f-b8e6-75af94139150"
