@@ -211,6 +211,22 @@
                 "showResult": false,
                 "timeout": 0,
                 "uid": "1551F355-D3A8-4CB1-A519-44743E49A470"
+            },
+            {
+                "description": "Prints all network interfaces currently in operation.",
+                "name": "Current Network Interfaces",
+                "script": "ifconfig;",
+                "showResult": true,
+                "timout": 60,
+                "uid": "1bf5c8cf-6844-4c73-b933-c3177f4e33f7"
+            },
+            {
+                "description": "Restart Network Services",
+                "name": "Reset Network Services",
+                "script": "sudo /etc/init.d/networking restart",
+                "showResult": true,
+                "timout": 60,
+                "uid": "e2d5cfda-3573-4e2e-9523-39a3bac0b121"
             }
         ],
         "description": "All Commands about Networking",
