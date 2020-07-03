@@ -420,5 +420,20 @@
         "description": "Basic File Permission Commands",
         "name": "File Permissions",
         "uid": "31F7F568-8CCA-4F2B-8F8E-BCF4FFE233A3"
-    }
+    },
+   {
+        "children": [
+    {
+    	"decription": "Restart NZBGet",
+    	"name": "Restart NZBGet",
+    	"script": "sudo service nzbget restart;",
+        "showResult": true,
+        "timeout": 0,
+        "uid": "598e7a85-84ff-455f-b8e6-75af94139150"
+        }
+        ],
+        "description": "Start/Stop/Restart Media Services",
+        "name": "Media Center Control",
+        "uid": "bb8fd250-6151-42f7-a575-9a94ebb9c8e7"
+        }
 ]
