@@ -3,7 +3,7 @@ BHRShellScriptLibrary
 
 What is the Shell Script Library?
 ---------------------------------
-The Script Library is a collection of useful bash scripts, which can be accessed by all SimpleSSH users. 
+The Script Library is a collection of useful bash scripts, which can be accessed by all SimplePi users. 
 
 Everyone can contribute to the Script Library and make his scripts available for other users.
 
